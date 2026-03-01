@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | TechWatch Electronics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container py-5 mt-4">
+        <div class="row">
+            <!-- Sidebar Filters -->
+            <aside class="col-lg-3 mb-4">
+                <div class="card p-4 sticky-top" style="top: 100px;">
+                    <h5 class="fw-bold mb-4">Filters</h5>
+
+                    <!-- Search -->
+                    <div class="mb-4">
+                        <label class="form-label fw-600">Search</label>
+                        <div class="input-group">
+                            <input type="text" id="search-input" class="form-control" placeholder="Search products...">
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="mb-4">
+                        <label class="form-label fw-600">Category</label>
+                        <select id="category-filter" class="form-select">
+                            <option value="All">All Categories</option>
+                            <!-- Options rendered by JS -->
+                        </select>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="mb-4">
+                        <label class="form-label fw-600">Brand</label>
+                        <div id="brand-filters">
+                            <!-- Brands rendered by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="mb-4">
+                        <label class="form-label fw-600">Price Range (<span id="price-val">₹2,00,000</span>)</label>
+                        <input type="range" class="form-range" id="price-filter" min="0" max="200000" step="1000"
+                            value="200000">
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>₹0</span>
+                            <span>₹2,00,000</span>
+                        </div>
+                    </div>
+
+                    <button id="clear-filters" class="btn btn-outline-secondary w-100">Clear Filters</button>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <main class="col-lg-9">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                    <h4 class="fw-bold mb-0">Products (<span id="product-count">0</span>)</h4>
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="btn-group shadow-sm" role="group">
+                            <button type="button" class="btn btn-light active" id="grid-view"><i
+                                    class="bi bi-grid-3x3-gap"></i></button>
+                            <button type="button" class="btn btn-light" id="list-view"><i
+                                    class="bi bi-list-task"></i></button>
+                        </div>
+                        <select id="sort-select" class="form-select shadow-sm" style="width: auto;">
+                            <option value="default">Default Sorting</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Container -->
+                <div class="row g-4" id="products-grid">
+                    <!-- Products rendered by JS -->
+                </div>
+
+                <!-- Pagination -->
+                <nav class="mt-5">
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <!-- Pagination rendered by JS -->
+                    </ul>
+                </nav>
+            </main>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0">
+                <div class="modal-body p-0" id="quick-view-content">
+                    <!-- Content rendered by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/products.js"></script>
+</body>
+
+</html>
